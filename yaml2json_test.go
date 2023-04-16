@@ -9,10 +9,10 @@ func TestYaml2JsonEmpty(t *testing.T) {
 
   want := ``
 
-  got, _ := Yaml2Json(yaml)
+  got, _ := yaml2json(yaml)
 
   if want != got {
-    t.Fatalf("Yaml2Json(): want:\n%v\n, got:\n%v", want, got)
+    t.Fatalf("yaml2json(): want:\n%v\n, got:\n%v", want, got)
   }
 }
 
@@ -22,10 +22,10 @@ func TestYaml2JsonBasicMap(t *testing.T) {
 
   want := `{"coincoin":5}`
 
-  got, _ := Yaml2Json(yaml)
+  got, _ := yaml2json(yaml)
 
   if want != got {
-    t.Fatalf("Yaml2Json(): want:\n%v\n, got:\n%v", want, got)
+    t.Fatalf("yaml2json(): want:\n%v\n, got:\n%v", want, got)
   }
 }
 
@@ -36,10 +36,10 @@ coincoin: 5
 
   want := `{"coincoin":5}`
 
-  got, _ := Yaml2Json(yaml)
+  got, _ := yaml2json(yaml)
 
   if want != got {
-    t.Fatalf("Yaml2Json(): want:\n%v\n, got:\n%v", want, got)
+    t.Fatalf("yaml2json(): want:\n%v\n, got:\n%v", want, got)
   }
 }
 
@@ -51,10 +51,10 @@ func TestYaml2JsonBasicArray(t *testing.T) {
 
   want := `["coincoin","cuicui","coucou"]`
 
-  got, _ := Yaml2Json(yaml)
+  got, _ := yaml2json(yaml)
 
   if want != got {
-    t.Fatalf("Yaml2Json(): want:\n%v\n, got:\n%v", want, got)
+    t.Fatalf("yaml2json(): want:\n%v\n, got:\n%v", want, got)
   }
 }
 
@@ -67,14 +67,14 @@ func TestYaml2JsonBasicArray2(t *testing.T) {
 
   want := `["coincoin","cuicui","coucou"]`
 
-  got, _ := Yaml2Json(yaml)
+  got, _ := yaml2json(yaml)
 
   if want != got {
-    t.Fatalf("Yaml2Json(): want:\n%v\n, got:\n%v", want, got)
+    t.Fatalf("yaml2json(): want:\n%v\n, got:\n%v", want, got)
   }
 }
 
-func TestJson2YamlAdvanced(t *testing.T) {
+func TestYaml2JsonAdvanced(t *testing.T) {
   yaml := `a: Easy!
 b:
   c: 2
@@ -99,9 +99,9 @@ b:
 `
   want := `{"a":"Easy!","b":{"c":2,"d":true,"e":[true,false],"f":"coincoin\n  cuicui\\npouetpouet\nje\\mets\\des\\antislash\n","g":3.1415,"h":3.141592654,"i":"true","my.super/key.test":["une\\vilaine` + "`string`" + `",4,{"another.key.too":{"x":1,"y":5,"z":6.666666666666667}}]}}`
 
-  got, _ := Yaml2Json(yaml)
+  got, _ := yaml2json(yaml)
 
   if want != got {
-    t.Fatalf("Yaml2Json(): want:\n%v\n, got:\n%v", want, got)
+    t.Fatalf("yaml2json(): want:\n%v\n, got:\n%v", want, got)
   }
 }

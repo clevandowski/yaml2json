@@ -11,17 +11,7 @@ import (
   "strings"
 )
 
-func isRootArray(s string) bool {
-  // Contient au moins 2 char
-  firstChars := s[0:2]
-  if firstChars == "- " {
-    return true
-  } else {
-    return false
-  }
-}
-
-func Yaml2Json(document string) (string, error) {
+func yaml2json(document string) (string, error) {
   document = strings.TrimSpace(document)
   if len(document) < 2 {
     return "", nil
@@ -49,7 +39,7 @@ func main() {
 
   documents := yamltool.SplitDocuments(rawDocuments)
   for _, document := range documents {
-    output, err := Yaml2Json(document)
+    output, err := yaml2json(document)
     if err != nil {
       log.Fatalf("error: %v", err)
     }
