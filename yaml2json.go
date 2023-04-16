@@ -1,7 +1,7 @@
 package main
 
 import (
-	"encoding/json"
+  "encoding/json"
   "fmt"
   "github.com/clevandowski/yamltool"
   "gopkg.in/yaml.v3"
@@ -32,9 +32,9 @@ func yaml2json(document string) (string, error) {
 func main() {
   stdin, err := io.ReadAll(os.Stdin)
 
-	if err != nil {
-		panic(err)
-	}
+  if err != nil {
+    panic(err)
+  }
 	rawDocuments := string(stdin)
 
   documents := yamltool.SplitDocuments(rawDocuments)
