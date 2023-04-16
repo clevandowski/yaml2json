@@ -1,5 +1,9 @@
 # yaml2json
 
+Transform yaml input stream into json.
+
+Support yaml with multi-documents input stream.
+
 ## Build
 
 Requires go >= v1.20
